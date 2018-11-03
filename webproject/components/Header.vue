@@ -17,7 +17,7 @@
                     <el-menu-item index="1" indexPath="/" class="nav_menu_item">Product Search</el-menu-item>
                     <el-menu-item index="2" class="nav_menu_item">List Create</el-menu-item>
                     <el-submenu index="3">
-                        <template slot="title"><p class="nav_menu_item">Manager</p></template>
+                        <p slot="title" class="nav_menu_item">Manager</p>
                         <el-menu-item index="3-1" indexPath="/Product" class="nav_menu_item">Product</el-menu-item>
                         <el-menu-item index="3-2" class="nav_menu_item">Oder</el-menu-item>
                         <el-menu-item index="3-3" class="nav_menu_item">Storge</el-menu-item>
@@ -88,4 +88,7 @@ export default {
     font-family: "Microsoft YaHei";
     font-size: 20px;
 }
+.el-menu >>> .el-menu_title{ 
+    height: 100%;
+  }
 </style>
