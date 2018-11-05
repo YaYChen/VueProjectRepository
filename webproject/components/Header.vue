@@ -50,6 +50,9 @@ export default {
             }
             
         }
+    },
+    created:function(){
+        
     }
 }
 </script>
@@ -88,7 +91,10 @@ export default {
     font-family: "Microsoft YaHei";
     font-size: 20px;
 }
-.el-menu >>> .el-menu_title{ 
+.el-menu--horizontal>.el-submenu{
     height: 100%;
-  }
+}
+.el-menu--horizontal>.el-submenu>>>.el-submenu__title{
+    height: 100%;
+}
 </style>
