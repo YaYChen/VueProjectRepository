@@ -14,14 +14,15 @@
                     text-color="#777777"
                     active-text-color="#000000"
                     >
-                    <el-menu-item index="1" indexPath="/" class="nav_menu_item">Product Search</el-menu-item>
-                    <el-menu-item index="2" class="nav_menu_item">List Create</el-menu-item>
+                    <el-menu-item index="1" indexPath="/" class="nav_menu_item">{{ $t('navbar.home') }}</el-menu-item>
+                    <el-menu-item index="2" class="nav_menu_item">{{$t('navbar.shoppingList')}}</el-menu-item>
                     <el-submenu index="3">
-                        <p slot="title" class="nav_menu_item">Manager</p>
-                        <el-menu-item index="3-1" indexPath="/Product" class="nav_menu_item">Product</el-menu-item>
-                        <el-menu-item index="3-2" class="nav_menu_item">Oder</el-menu-item>
-                        <el-menu-item index="3-3" class="nav_menu_item">Storge</el-menu-item>
+                        <p slot="title" class="nav_menu_item">{{$t('navbar.manager')}}</p>
+                        <el-menu-item index="3-1" indexPath="/Product" class="nav_menu_item">{{$t('navbar.managers.product')}}</el-menu-item>
+                        <el-menu-item index="3-2" class="nav_menu_item">{{$t('navbar.managers.list')}}</el-menu-item>
+                        <el-menu-item index="3-3" class="nav_menu_item">{{$t('navbar.managers.storge')}}</el-menu-item>
                     </el-submenu>
+                    <el-menu-item index="4" class="nav_menu_item">{{$t('language.name') }}</el-menu-item>
                 </el-menu>
             </div>
         </div>  
@@ -47,8 +48,15 @@ export default {
                 case '3-1':
                     window.location.href="/Product";
                     break;
+                case '4':
+                    this.changeLocale();
+                    break;
             }
             
+        },
+        changeLocale() {
+            let locale = this.$i18n.locale
+            locale === 'zh' ? this.$i18n.locale = 'en' : this.$i18n.locale = 'zh'
         }
     },
     created:function(){

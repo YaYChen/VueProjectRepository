@@ -1,42 +1,39 @@
 <template>
     <el-upload
-        class="upload-demo"
+        class="avatar-uploader"
         action="http://localhost:8080/upload-img"
-        :on-preview="handlePreview"
-        :on-remove="handleRemove"
-        :before-remove="beforeRemove"
-        multiple
-        :limit="1"
-        :on-exceed="handleExceed"
+        :show-file-list="false"
         :on-success="handleAvatarSuccess"
-        :file-list="fileList">
-        <el-button size="small" type="primary" class="upload_button">Upload Img</el-button>
-        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+        :before-upload="beforeAvatarUpload">
+        <img v-if="imageUrl" :src="imageUrl" class="avatar">
+        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
     </el-upload>
 </template>
 
 <script>
   export default {
-    props:['fileName'],
+    props:['imageUrl'],
     data() {
       return {
-        fileList: []
       };
     },
     methods: {
-      handleRemove(file, fileList) {
-      },
-      handlePreview(file) {
-      },
-      handleExceed(files, fileList) {
-        this.$message.warning(`当前限制选择 1 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
-      },
-      beforeRemove(file, fileList) {
-        return this.$confirm(`确定移除 ${ file.name }？`);
-      },
       handleAvatarSuccess(res, file) {
         alert('Upload img success!');
-        this.$emit('handleAvatarSuccess', file.name);
+        this.imageUrl = URL.createObjectURL(file.raw);
+        this.$emit('handleAvatarSuccess', file.name,this.imageUrl);
+      },
+      beforeAvatarUpload(file) {
+        const isJPG = file.type === 'image/jpeg';
+        const isLt2M = file.size / 1024 / 1024 < 2;
+
+        if (!isJPG) {
+          this.$message.error('上传头像图片只能是 JPG 格式!');
+        }
+        if (!isLt2M) {
+          this.$message.error('上传头像图片大小不能超过 2MB!');
+        }
+        return isJPG && isLt2M;
       }
     }
   }
@@ -57,4 +54,27 @@
   font-size: 12px;
   background-color: dodgerblue;
 }
+.avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .avatar-uploader .el-upload:hover {
+    border-color: #409EFF;
+  }
+  .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+  }
+  .avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+  }
 </style>

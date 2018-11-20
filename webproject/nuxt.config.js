@@ -37,7 +37,8 @@ module.exports = {
     {
       src: '~plugins/ElementUI',
       ssr: true,
-    }
+    },
+    '~/plugins/VueI18n.js'
   ],
 
   /*
@@ -54,6 +55,7 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    baseURL:'http://localhost:8080'
   },
 
   /*
@@ -63,9 +65,6 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    extend(config, ctx) {
-      
-    }
   },
   vendor:['element-ui']
 }

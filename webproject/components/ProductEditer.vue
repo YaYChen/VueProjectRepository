@@ -2,7 +2,7 @@
     <div class="product_editer_box">
         <div class="img_upload_box">
             <label>Product Picture Upload:</label>
-            <uploaderComponent id="imgUpload" v-on:handleAvatarSuccess="handleAvatarSuccess"/>
+            <uploaderComponent id="imgUpload" v-on:handleAvatarSuccess="handleAvatarSuccess" v-bind:imageUrl="product.productPicture"/>
         </div>
         <div class="product_detial_box">
             <form>
@@ -67,7 +67,7 @@
                             vm.product.productPicture=vm.imgFileName;
                         }
                         var postData=JSON.stringify(vm.product);
-                        this.$axios.post('http://localhost:8080/update-product',postData,{
+                        this.$axios.post('/update-product',postData,{
                             headers: {
                                 'Content-Type': 'application/json;charset=UTF-8'
                             }
@@ -82,7 +82,7 @@
                             vm.product.productPicture=vm.imgFileName;
                         }
                         var postData=JSON.stringify(vm.product);
-                        this.$axios.post('http://localhost:8080/insert-product',postData,{
+                        this.$axios.post('/insert-product',postData,{
                             headers: {
                                 'Content-Type': 'application/json;charset=UTF-8'
                             }
@@ -103,13 +103,14 @@
             selectChange:function(){
                 this.product.category.id=this.selectValue;
             },
-            handleAvatarSuccess:function(fileName){
-                this.imgFileName=fileName;               
+            handleAvatarSuccess:function(fileName,imgUrl){
+                this.imgFileName=fileName;
+                this.product.productPicture=imgUrl;               
             }
         },
         created:function(){
             var vm=this;
-            this.$axios.get('http://localhost:8080/getCategories')
+            this.$axios.get('/getCategories')
             .then((response)=>{
                 vm.selectCategories=response.data;
                 if(vm.product.category.id!==''||vm.product.category.id!==undefined){

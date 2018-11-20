@@ -40,7 +40,7 @@ export default {
             var vm=this;
             vm.showProduct=true;
             vm.code=vm.$refs.input_search.value;
-            this.$axios.get("http://localhost:8080/product-ByCode",{
+            this.$axios.get("/product-ByCode",{
                 params: {
                     code:vm.$refs.input_search.value
                     }

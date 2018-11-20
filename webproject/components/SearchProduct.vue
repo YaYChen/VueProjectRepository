@@ -35,7 +35,7 @@ export default {
     methods:{
         inputListener:function(){
             var vm=this;
-            this.$axios.get("http://localhost:8080/product-ByCode",{
+            this.$axios.get("/product-ByCode",{
                 params: {
                     code:this.$refs.input_search.value
                     }
