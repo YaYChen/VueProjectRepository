@@ -19,7 +19,8 @@
 </template>
 
 <script>
-import Product from '@/components/Product.vue'
+
+import Product from '@/components/product.vue'
 
 export default {
     name:"SearchProduct",

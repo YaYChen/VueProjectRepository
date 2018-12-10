@@ -8,7 +8,7 @@
                 <div class="show_detail_info_title">品名:</div>
                 <div class="show_detail_info_value">{{product.name}}</div>
                 <div class="show_detail_info_title">类别:</div>
-                <div class="show_detail_info_value">{{product.category.name}}</div>
+                <div class="show_detail_info_value">{{product.category}}</div>
                 <div class="show_detail_info_title">规格:</div>
                 <div class="show_detail_info_value">{{product.specification}}</div>
             </div>

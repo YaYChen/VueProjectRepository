@@ -1,6 +1,6 @@
 {
   "language": {
-    "name": "中文"
+    "name": "English"
   },
   "navbar": {
     "home": "Home",
@@ -9,7 +9,8 @@
     "managers":{
       "product":"Product Manager",
       "list":"List Manager",
-      "storge":"Storge Manager"
+      "storge":"Storge Manager",
+      "supplier":"Supplier Manager"
     }
   }
 }

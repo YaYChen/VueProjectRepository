@@ -1,37 +1,41 @@
 <template>
     <div class="layout_main">
         <app-header v-bind:activeIndex="activeIndex"/> 
-        <search-product-component/>
+        <shopping-list/>
         <app-footer/>
     </div>
 </template>
 
 <script>
+
 import Header from '@/components/header.vue'
 import Footer from '@/components/footer.vue'
-import SearchProduct from '@/components/searchproduct.vue'
+import ShoppingList from '@/components/shoppinglist.vue'
 
 export default {
-    data:function(){
+    data(){
         return{
-           activeIndex:'1'
+            activeIndex:'2'
         }
     },
     components: {
-        'search-product-component':SearchProduct,
         'app-header':Header,
-        'app-footer':Footer
+        'app-footer':Footer,
+        'shopping-list':ShoppingList
     },
     methods:{
-        
+
+    },
+    created(){
+
     }
 }
 </script>
 
-<style>
-
+<style scoped>
 .layout_main{
     width: 100%;
-    height: auto;
+    margin: 0 auto;
+    height: 100%;
 }
 </style>

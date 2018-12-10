@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import ProductEditer from '@/components/ProductEditer.vue'
+import ProductEditer from '@/components/productediter.vue'
 
 export default {
     name:"EditProduct",

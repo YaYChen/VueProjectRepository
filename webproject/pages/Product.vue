@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import Footer from '@/components/Footer.vue'
-import EditProduct from '@/components/EditProduct.vue'
+import Header from '@/components/header.vue'
+import Footer from '@/components/footer.vue'
+import EditProduct from '@/components/editproduct.vue'
 
 export default {
     data:function(){

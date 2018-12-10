@@ -21,9 +21,20 @@
                         <el-menu-item index="3-1" indexPath="/Product" class="nav_menu_item">{{$t('navbar.managers.product')}}</el-menu-item>
                         <el-menu-item index="3-2" class="nav_menu_item">{{$t('navbar.managers.list')}}</el-menu-item>
                         <el-menu-item index="3-3" class="nav_menu_item">{{$t('navbar.managers.storge')}}</el-menu-item>
+                        <el-menu-item index="3-4" class="nav_menu_item">{{$t('navbar.managers.supplier')}}</el-menu-item>
                     </el-submenu>
-                    <el-menu-item index="4" class="nav_menu_item">{{$t('language.name') }}</el-menu-item>
                 </el-menu>
+            </div>
+            <div class="header_globalization">
+                <el-dropdown @command="handleCommand">
+                    <span class="el-dropdown-link">
+                        {{$t('language.name') }}<i class="el-icon-arrow-down el-icon--right"></i>
+                    </span>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item command="a">中文</el-dropdown-item>
+                        <el-dropdown-item command="b">English</el-dropdown-item>
+                    </el-dropdown-menu>
+                </el-dropdown>
             </div>
         </div>  
     </div>
@@ -48,19 +59,28 @@ export default {
                 case '3-1':
                     window.location.href="/Product";
                     break;
-                case '4':
-                    this.changeLocale();
+                default:
                     break;
             }
             
         },
-        changeLocale() {
-            let locale = this.$i18n.locale
-            locale === 'zh' ? this.$i18n.locale = 'en' : this.$i18n.locale = 'zh'
-        }
+        handleCommand(command){
+            switch(command){
+                case 'a':
+                    this.$i18n.locale = 'zh';
+                    this.$store.commit('changeLanguage', 'zh');
+                    break;
+                case 'b':
+                    this.$i18n.locale = 'en';
+                    this.$store.commit('changeLanguage', 'en');
+                    break;
+                default:
+                    break;
+            }
+        },
     },
-    created:function(){
-        
+    created(){
+        this.$i18n.locale = this.$store.state.name;
     }
 }
 </script>
@@ -77,7 +97,7 @@ export default {
 }
 .layout_box{
     margin: 0 auto;
-    width: 1000px;
+    width: 1100px;
     height: 70px;
 }
 .header_logo{
@@ -104,5 +124,26 @@ export default {
 }
 .el-menu--horizontal>.el-submenu>>>.el-submenu__title{
     height: 100%;
+}
+.header_globalization{
+    width: 99px;
+    height: 100%;
+    float: left;
+    border-left: 1px solid gray;
+    margin: 0 auto;
+}
+.header_globalization span{
+    display: block;
+}
+.el-dropdown-link {
+    cursor: pointer;
+    font-family: "Microsoft YaHei";
+    font-size: 20px;
+    line-height: 65px;
+    height: 100%;
+    width: 99px;
+}
+.el-icon-arrow-down {
+font-size: 20px;
 }
 </style>
