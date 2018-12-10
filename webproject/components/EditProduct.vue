@@ -24,7 +24,6 @@
 import ProductEditer from '@/components/productediter.vue'
 
 export default {
-    name:"EditProduct",
     data: function(){
         return{
             showProduct:false,

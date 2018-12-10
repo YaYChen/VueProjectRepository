@@ -14,6 +14,6 @@ EXPOSE 9080
 #如果在中国环境下构建请把下面注释打开
 RUN npm config set registry https://registry.npm.taobao.org
 
-RUN cnpm install
-RUN cnpm run build
+RUN npm install
+RUN npm run build
 CMD ["cnpm", "start"]
