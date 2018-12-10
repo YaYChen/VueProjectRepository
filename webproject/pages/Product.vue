@@ -15,7 +15,7 @@ export default {
     data:function(){
         return{
            activeIndex:'3-1'
-        }
+        };
     },
     components: {
         'app-header':Header,

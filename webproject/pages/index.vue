@@ -15,7 +15,7 @@ export default {
     data:function(){
         return{
            activeIndex:'1'
-        }
+        };
     },
     components: {
         'search-product-component':SearchProduct,

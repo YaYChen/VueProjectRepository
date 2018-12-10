@@ -29,7 +29,7 @@ export default {
             showProduct:false,
             product:'',
             update:false
-        }      
+        };      
     },
     components: {
         'product-editer-component':ProductEditer

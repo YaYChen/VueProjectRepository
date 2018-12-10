@@ -29,11 +29,10 @@
 
 <script>
 export default {
-  name: 'Product',
   props:['product'],
   data:function() {
     return {
-    }
+    };
   },
   methods:{
       

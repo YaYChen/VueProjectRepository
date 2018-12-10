@@ -23,12 +23,11 @@
 import Product from '@/components/product.vue'
 
 export default {
-    name:"SearchProduct",
     data: function(){
         return{
             showProduct:false,
             product:''
-        }      
+        };      
     },
     components: {
         'product-component':Product

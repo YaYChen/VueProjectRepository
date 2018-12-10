@@ -16,7 +16,7 @@ export default {
     data(){
         return{
             activeIndex:'2'
-        }
+        };
     },
     components: {
         'app-header':Header,

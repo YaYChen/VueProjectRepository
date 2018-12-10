@@ -44,14 +44,13 @@
 <script>
     import uploaderComponent from '@/components/el-uploader.vue'
     export default {
-        name: 'ProductEditer',
         props:['product','update'],
         data:function() {
             return {
                 selectCategories:[],
                 selectValue:'',
                 imgFileName:''
-            }
+            };
         },
         components:{
             'uploaderComponent':uploaderComponent

@@ -37,7 +37,7 @@ export default {
         return{
             quantity:1,
             totalPrice:0
-        }
+        };
     },
     methods:{
         addQuantity:function(){
